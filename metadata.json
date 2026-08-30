@@ -1,0 +1,6 @@
+{
+  "name": "Smart Classroom",
+  "description": "AI-Powered Education with Classroom Radar, Student Dashboard, Concept Graphs, and Lumina AI curriculum ingestion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

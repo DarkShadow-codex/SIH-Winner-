@@ -1,0 +1,566 @@
+@import "tailwindcss";
+
+/* =========================================================
+   SMART CLASSROOM — GLOBAL COLOR & CONTRAST SYSTEM
+   ========================================================= */
+
+:root {
+  --sc-navy: #172033;
+  --sc-navy-light: #334155;
+
+  --sc-green: #00875a;
+  --sc-green-dark: #006b47;
+  --sc-green-light: #ecfdf5;
+
+  --sc-text: #172033;
+  --sc-text-secondary: #475569;
+  --sc-text-muted: #64748b;
+  --sc-text-light: #94a3b8;
+
+  --sc-background: #f8fafc;
+  --sc-surface: #ffffff;
+
+  --sc-border: #e2e8f0;
+  --sc-border-dark: #cbd5e1;
+
+  --sc-danger: #dc2626;
+  --sc-warning: #b45309;
+  --sc-success: #15803d;
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body {
+  background: var(--sc-background) !important;
+  color: var(--sc-text) !important;
+  min-height: 100%;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--sc-navy) !important;
+}
+
+/* =========================================================
+   NORMAL TEXT
+   ========================================================= */
+
+p {
+  color: var(--sc-text-secondary);
+}
+
+label {
+  color: var(--sc-navy) !important;
+}
+
+strong,
+b {
+  color: var(--sc-navy);
+}
+
+/* =========================================================
+   BRAND / LOGO
+   ========================================================= */
+
+.brand-text,
+.logo-text {
+  color: var(--sc-navy) !important;
+  font-weight: 800;
+}
+
+.brand-icon,
+.logo-icon {
+  color: var(--sc-green) !important;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+aside {
+  color: var(--sc-navy);
+}
+
+aside h1,
+aside h2,
+aside h3,
+aside h4,
+aside h5,
+aside h6 {
+  color: var(--sc-navy) !important;
+}
+
+aside p,
+aside span {
+  color: var(--sc-text-secondary);
+}
+
+/* Sidebar navigation */
+
+aside a,
+aside button:not(.bg-emerald-600):not(.bg-emerald-700):not(.bg-emerald-800):not(.bg-green-600):not(.bg-green-700):not(.bg-slate-900):not(.check-class-btn) {
+  color: var(--sc-navy);
+}
+
+aside a:hover,
+aside button:not(.bg-emerald-600):not(.bg-emerald-700):not(.bg-emerald-800):not(.bg-green-600):not(.bg-green-700):not(.bg-slate-900):not(.check-class-btn):hover {
+  color: var(--sc-green-dark);
+}
+
+/* =========================================================
+   PRIMARY BUTTONS & CHECK CLASS VISIBILITY
+   ========================================================= */
+
+button.bg-green-700,
+button.bg-green-600,
+button.bg-green-500,
+button.bg-emerald-800,
+button.bg-emerald-700,
+button.bg-emerald-600,
+button.bg-emerald-500,
+.bg-green-700,
+.bg-green-600,
+.bg-green-500,
+.bg-emerald-800,
+.bg-emerald-700,
+.bg-emerald-600,
+.bg-emerald-500,
+.check-class-btn {
+  background-color: var(--sc-green-dark) !important;
+  color: #ffffff !important;
+  border-color: var(--sc-green-dark) !important;
+}
+
+button.bg-green-700:hover,
+button.bg-green-600:hover,
+button.bg-green-500:hover,
+button.bg-emerald-800:hover,
+button.bg-emerald-700:hover,
+button.bg-emerald-600:hover,
+button.bg-emerald-500:hover,
+.bg-green-700:hover,
+.bg-green-600:hover,
+.bg-green-500:hover,
+.bg-emerald-800:hover,
+.bg-emerald-700:hover,
+.bg-emerald-600:hover,
+.bg-emerald-500:hover,
+.check-class-btn:hover {
+  background-color: #004d33 !important;
+  color: #ffffff !important;
+}
+
+/* All children inside primary colored buttons MUST be bright white */
+button.bg-green-700 *,
+button.bg-green-600 *,
+button.bg-green-500 *,
+button.bg-emerald-800 *,
+button.bg-emerald-700 *,
+button.bg-emerald-600 *,
+button.bg-emerald-500 *,
+.bg-green-700 *,
+.bg-green-600 *,
+.bg-green-500 *,
+.bg-emerald-800 *,
+.bg-emerald-700 *,
+.bg-emerald-600 *,
+.bg-emerald-500 *,
+.check-class-btn * {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* =========================================================
+   PRIMARY BUTTON CUSTOM CLASS
+   ========================================================= */
+
+.primary-btn {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--sc-green) !important;
+}
+
+.primary-btn:hover {
+  background-color: var(--sc-green-dark) !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   LIVE CLASS BUTTON
+   ========================================================= */
+
+.live-class-btn {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sc-green) !important;
+}
+
+.live-class-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* =========================================================
+   CREATE CLASS BUTTON
+   ========================================================= */
+
+.create-class-btn {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sc-green) !important;
+}
+
+.create-class-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.create-class-btn:hover {
+  background-color: var(--sc-green-dark) !important;
+}
+
+/* =========================================================
+   GREEN BUTTON TEXT FIX
+   ========================================================= */
+
+.bg-green-600 *,
+.bg-green-500 *,
+.bg-emerald-600 *,
+.bg-emerald-500 * {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   LOGO GREEN BOX
+   ========================================================= */
+
+.logo-box {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+}
+
+.logo-box svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+input,
+textarea,
+select {
+  color: var(--sc-navy) !important;
+  background-color: #ffffff !important;
+  border-color: var(--sc-border-dark);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--sc-text-muted) !important;
+  opacity: 1 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--sc-green) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.14) !important;
+}
+
+/* =========================================================
+   SEARCH ICON
+   ========================================================= */
+
+.search-icon {
+  color: var(--sc-navy-light) !important;
+}
+
+/* =========================================================
+   CARDS / PANELS
+   ========================================================= */
+
+.glass-panel,
+.glass-panel-heavy,
+.academic-card {
+  background-color: var(--sc-surface) !important;
+  color: var(--sc-navy) !important;
+  border-color: var(--sc-border) !important;
+}
+
+/* Text inside cards */
+
+.glass-panel h1,
+.glass-panel h2,
+.glass-panel h3,
+.glass-panel h4,
+.glass-panel-heavy h1,
+.glass-panel-heavy h2,
+.glass-panel-heavy h3,
+.glass-panel-heavy h4 {
+  color: var(--sc-navy) !important;
+}
+
+.glass-panel p,
+.glass-panel-heavy p {
+  color: var(--sc-text-secondary);
+}
+
+/* =========================================================
+   TAILWIND TEXT COLOR CLEANUP
+   ========================================================= */
+
+/* Slate */
+
+.text-slate-950,
+.text-slate-900,
+.text-slate-800 {
+  color: var(--sc-navy) !important;
+}
+
+.text-slate-700,
+.text-slate-600 {
+  color: var(--sc-text-secondary) !important;
+}
+
+.text-slate-500,
+.text-slate-400 {
+  color: var(--sc-text-muted) !important;
+}
+
+.text-slate-300 {
+  color: var(--sc-text-secondary) !important;
+}
+
+/* =========================================================
+   REMOVE LIGHT / INVISIBLE TEXT ON LIGHT BACKGROUNDS
+   ========================================================= */
+
+.text-white {
+  /*
+    Keep white text only when it is sitting on a colored
+    background. Do not globally change it here because
+    buttons/cards may legitimately use white text.
+  */
+}
+
+/* =========================================================
+   BLUE / INDIGO PRIMARY COLORS → EMERALD
+   ========================================================= */
+
+.text-blue-500,
+.text-blue-600,
+.text-blue-700,
+.text-indigo-500,
+.text-indigo-600,
+.text-indigo-700 {
+  color: var(--sc-green) !important;
+}
+
+.border-blue-500,
+.border-blue-600,
+.border-indigo-500,
+.border-indigo-600 {
+  border-color: var(--sc-green) !important;
+}
+
+.bg-blue-500,
+.bg-blue-600,
+.bg-blue-700,
+.bg-indigo-500,
+.bg-indigo-600,
+.bg-indigo-700 {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   LIGHT BLUE / INDIGO BACKGROUNDS
+   ========================================================= */
+
+.bg-blue-50,
+.bg-blue-100,
+.bg-indigo-50,
+.bg-indigo-100 {
+  background-color: var(--sc-green-light) !important;
+}
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.nav-active {
+  background-color: var(--sc-green) !important;
+  color: #ffffff !important;
+}
+
+.nav-active *,
+.nav-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.nav-inactive {
+  background-color: #ffffff !important;
+  color: var(--sc-navy) !important;
+}
+
+.nav-inactive:hover {
+  background-color: #f1f5f9 !important;
+  color: var(--sc-green-dark) !important;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: var(--sc-green) !important;
+}
+
+a:hover {
+  color: var(--sc-green-dark) !important;
+}
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+
+.status-success {
+  background: #ecfdf5;
+  color: #047857 !important;
+  border: 1px solid #a7f3d0;
+}
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.status-warning {
+  background: #fffbeb;
+  color: #92400e !important;
+  border: 1px solid #fde68a;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.status-error {
+  background: #fef2f2;
+  color: #b91c1c !important;
+  border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   MONITORING ACTIVE
+   ========================================================= */
+
+.monitor-active {
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+  border: 1px solid #86efac !important;
+}
+
+.monitor-active *,
+.monitor-active svg {
+  color: #047857 !important;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+table {
+  color: var(--sc-navy);
+}
+
+th {
+  color: var(--sc-navy) !important;
+}
+
+td {
+  color: var(--sc-text-secondary);
+}
+
+/* =========================================================
+   BORDERS
+   ========================================================= */
+
+.border-slate-100,
+.border-slate-200 {
+  border-color: var(--sc-border) !important;
+}
+
+.border-slate-300 {
+  border-color: var(--sc-border-dark) !important;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(0, 135, 90, 0.18);
+  color: var(--sc-navy);
+}
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+button:disabled,
+input:disabled,
+select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .glass-panel,
+  .glass-panel-heavy,
+  .academic-card {
+    border-radius: 0.875rem;
+  }
+}
