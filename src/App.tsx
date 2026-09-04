@@ -424,6 +424,7 @@ export default function App() {
       case 'knowledge_hub':
         return <KnowledgeHub />;
       case 'assessment':
+      case 'assessments':
         return <AssessmentView userRole={userRole} userEmail={userEmail} />;
       case 'people':
         return (

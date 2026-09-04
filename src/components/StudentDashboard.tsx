@@ -42,14 +42,14 @@ export default function StudentDashboard({
     <div className="space-y-6 animate-fade-in">
       
       {/* Welcome Greetings Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-white/10 pb-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-slate-200 pb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Welcome back, Alex.</h1>
-          <p className="text-sm text-slate-300">Here is your learning landscape for today.</p>
+          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Welcome back, Sam.</h1>
+          <p className="text-sm text-slate-600">Here is your learning landscape for today.</p>
         </div>
         <div className="text-right">
-          <div className="text-[10px] font-bold text-indigo-300 uppercase tracking-widest mb-1">Current Focus</div>
-          <div className="text-xs font-bold px-3 py-1.5 bg-cyan-500/20 text-cyan-200 border border-cyan-500/30 rounded-lg inline-block shadow">
+          <div className="text-[10px] font-bold text-emerald-800 uppercase tracking-widest mb-1">Current Focus</div>
+          <div className="text-xs font-bold px-3 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg inline-block shadow-sm">
             Physics: Kinematics
           </div>
         </div>

@@ -7,7 +7,7 @@ interface LoginProps {
 }
 
 // Preset taken usernames for availability check simulation
-const TAKEN_USERNAMES = ['admin', 'teacher', 'student', 'alex_davis', 'sam_wilson', 'smartclass'];
+const TAKEN_USERNAMES = ['admin', 'administrator', 'root', 'support', 'system', 'smartclass_official'];
 
 export default function Login({ onLogin, initialProfile }: LoginProps) {
   // Onboarding Step State: 'auth' | 'profession' | 'questionnaire'
@@ -113,6 +113,32 @@ export default function Login({ onLogin, initialProfile }: LoginProps) {
           ? email.split('@')[0]
           : 'User ' + phoneNumber.slice(-4)
       );
+    }
+
+    if (!isSignUp) {
+      const isStudent = email.toLowerCase().includes('student');
+      const role: Role = selectedRole || (isStudent ? 'student' : 'teacher');
+      const finalName = fullName || (role === 'student' ? 'Sam Wilson' : 'Alex Davis');
+      const handle = username || (role === 'student' ? 'student_sam' : 'prof_alex');
+      const cleanHandle = handle.startsWith('@') ? handle : `@${handle}`;
+
+      onLogin({
+        name: finalName,
+        email: authMethod === 'email' ? email : `${handle}@smartclass.edu`,
+        phoneNumber: authMethod === 'phone' ? phoneNumber : undefined,
+        role: role,
+        username: cleanHandle,
+        schoolName: role === 'student' ? 'St. Jude Higher Secondary School' : 'Oakridge International Academy',
+        avatarUrl: role === 'teacher'
+          ? 'https://lh3.googleusercontent.com/aida-public/AB6AXuBPOjiU14tOgS2jpo3upnRKq1lcpfAl6j_4aw0HQOW0O6h4p9tnqdnlIACxwrSBj3O8JjWW5zVPCO6Ud71Ch-LlpeqXX2UcVeJEr4tkj7zXxymbyRuDzya0r6X2uPiR5ClRmJcloUAiZ80UfyI47RMFSCQU55X309z3gZKNlVDAdZEQCzN0If4hYJGkYyswcFqvvXxTZFOQrXA8D8MBO8fKyGWh3N3l6G80t0TM5kdy2NftnteLtAku'
+          : 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-kQSlCd97Tlg8QSDHhUG7XdHnFSRLr9Rgy--F06lAWqZTzvKM5976QW0YicB2t5mkTGpg_vViRnNGqD7CImDAUgLvcUB2lEyqxNOBvAo8J9RKlH8-DFWA2y5ZFDGU5oY3Cze0nWYZtw8B9TJ7U_VvrM3PAwhJzPPh56y8g28K1KNJIYyWxiCVF_yK3KDpQCSLGhr5fyYyCYDs-q0AArE6izZ4PgyD4AedItmTPuSZ2b0jDzqTrlRq',
+        subject: role === 'teacher' ? (teacherSubject || 'Physics & Science') : undefined,
+        department: role === 'teacher' ? (teacherDept || 'Senior High School (10-12)') : undefined,
+        className: role === 'student' ? (studentClass || 'Class 10-A') : undefined,
+        stream: role === 'student' ? (studentStream || 'Science & Mathematics') : undefined,
+        rollNumber: role === 'student' ? (studentRollNo || 'STU-2026-104') : undefined
+      });
+      return;
     }
 
     setStep('profession');
@@ -708,6 +734,50 @@ export default function Login({ onLogin, initialProfile }: LoginProps) {
                     arrow_forward
                   </span>
                 </button>
+
+                {/* Quick 1-Click Demo Logins */}
+                <div className="pt-3 border-t border-slate-200 text-center">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
+                    Quick Demo Access
+                  </span>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => onLogin({
+                        name: 'Alex Davis',
+                        email: 'alex.davis@smartclass.edu',
+                        role: 'teacher',
+                        username: '@prof_alex',
+                        schoolName: 'Oakridge International Academy',
+                        subject: 'Physics & Science',
+                        department: 'Senior High School (10-12)',
+                        avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBPOjiU14tOgS2jpo3upnRKq1lcpfAl6j_4aw0HQOW0O6h4p9tnqdnlIACxwrSBj3O8JjWW5zVPCO6Ud71Ch-LlpeqXX2UcVeJEr4tkj7zXxymbyRuDzya0r6X2uPiR5ClRmJcloUAiZ80UfyI47RMFSCQU55X309z3gZKNlVDAdZEQCzN0If4hYJGkYyswcFqvvXxTZFOQrXA8D8MBO8fKyGWh3N3l6G80t0TM5kdy2NftnteLtAku'
+                      })}
+                      className="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg text-emerald-800 text-[11px] font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                    >
+                      <span className="material-symbols-outlined text-sm">local_library</span>
+                      <span>Teacher Demo</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onLogin({
+                        name: 'Sam Wilson',
+                        email: 'sam.wilson@student.edu',
+                        role: 'student',
+                        username: '@student_sam',
+                        schoolName: 'St. Jude Higher Secondary School',
+                        className: 'Class 10-A',
+                        stream: 'Science & Mathematics',
+                        rollNumber: 'STU-2026-104',
+                        avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-kQSlCd97Tlg8QSDHhUG7XdHnFSRLr9Rgy--F06lAWqZTzvKM5976QW0YicB2t5mkTGpg_vViRnNGqD7CImDAUgLvcUB2lEyqxNOBvAo8J9RKlH8-DFWA2y5ZFDGU5oY3Cze0nWYZtw8B9TJ7U_VvrM3PAwhJzPPh56y8g28K1KNJIYyWxiCVF_yK3KDpQCSLGhr5fyYyCYDs-q0AArE6izZ4PgyD4AedItmTPuSZ2b0jDzqTrlRq'
+                      })}
+                      className="py-2 px-3 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-800 text-[11px] font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                    >
+                      <span className="material-symbols-outlined text-sm">school</span>
+                      <span>Student Demo</span>
+                    </button>
+                  </div>
+                </div>
 
               </form>
 
